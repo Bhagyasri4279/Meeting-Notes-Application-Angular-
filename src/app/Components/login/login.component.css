@@ -1,0 +1,22 @@
+form {
+    width: 400px;
+
+    margin: 0 auto;
+}
+
+.login-card{
+    box-sizing: border-box;
+    top:130px;
+}
+
+
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: black;
+    color:white;
+    height:64px;
+    }

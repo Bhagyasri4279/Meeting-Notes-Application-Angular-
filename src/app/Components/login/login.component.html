@@ -1,0 +1,34 @@
+
+
+<div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" >
+<mat-card class="login-card" fxLayoutAlign="center center">
+    <mat-card-content>
+        <p style="color:red;font-size:16px">{{errorMessages}}</p>
+        <form [formGroup]="RegForm" fxLayout="column">
+            <mat-form-field>
+                <input formControlName="email" matInput placeholder="Enter Email">
+                <mat-error>
+                    <span *ngIf=" RegForm.controls['email'].hasError('required') && RegForm.get('email').touched">
+                        Please enter Email
+                    </span>
+                    <span *ngIf="RegForm.controls['email'].hasError('email') ">
+                        Please enter valid email
+                    </span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password" formControlName="password" matInput placeholder="Enter Password">
+                <mat-error>
+                    <span *ngIf="!RegForm.get('password').valid && RegForm.get('password').touched">
+                        Please enter Password </span>
+                    <span *ngIf="RegForm.controls['password'].hasError('password') ">
+                        Password should contain min 6 characters
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="accent" [disabled]="!RegForm.valid" (click)="onSubmit()">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>

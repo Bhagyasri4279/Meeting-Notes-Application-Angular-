@@ -1,0 +1,23 @@
+
+  <mat-toolbar color="primary" class="side-menu">
+  <!-- <button mat-icon-button id="menu" (click)="openNav()">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <span>User actions List</span>
+ 
+</mat-toolbar>
+<div style="background-color:antiquewhite">
+  <mat-sidenav-container class="example-container">
+   
+  <mat-sidenav-content>
+     <router-outlet></router-outlet>
+    <mat-nav-list>
+    <a mat-list-item (click)="meetings('allMeetings')">All Meetings</a>
+    <a mat-list-item (click)="meetings('createdMeetings')">Created Meetings</a>
+    <a mat-list-item (click)="meetings('invitedMeetings')">Invited Meetings</a>
+    </mat-nav-list>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+</div>

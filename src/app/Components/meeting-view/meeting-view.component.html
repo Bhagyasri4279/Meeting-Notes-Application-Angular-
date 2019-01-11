@@ -1,0 +1,56 @@
+<div>
+ <mat-icon style="float: right; cursor:pointer;"  (click)="cancel()">cancel</mat-icon>   
+
+<form class="Meetingform" [formGroup]="MeetingForm">
+ 
+  <h2 class="title">MEETING   INVITATION</h2>
+    <mat-form-field class="emp-list">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let emp of Employees" [selectable]="selectable"
+                   [removable]="removable" (removed)="remove(emp)">
+            {{emp.UserName}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="To" 
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+               <mat-icon (click)="addEmp()">person_add</mat-icon>
+        </mat-chip-list>
+      </mat-form-field>
+      <!-- <mat-error>  
+          <span *ngIf="!MeetingForm.get('to').valid && MeetingForm.get('to').touched">
+            Required </span>  
+      </mat-error>   -->
+
+
+
+    <mat-form-field class="emp-list">
+        <input matInput formControlName="title" placeholder="Meeting Title">
+    </mat-form-field>
+ <!-- <mat-error>  
+          <span *ngIf="!MeetingForm.get('title').valid && MeetingForm.get('title').touched">
+           Meeting Title Required </span>  
+      </mat-error>   -->
+
+ <br>
+    <mat-form-field>
+        <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+     <!-- <mat-error>  
+          <span *ngIf="!MeetingForm.get('date').valid && MeetingForm.get('date').touched">
+           Meeting Date is Required </span>  
+      </mat-error>   --> 
+
+  <mat-form-field class="emp-list">
+    <textarea matInput formControlName="summary"  placeholder="Meeting Summary"></textarea>
+  </mat-form-field>
+  <div class="create">
+  <button mat-raised-button [disabled]="!MeetingForm.valid" color="primary" class="button" (click)="create(MeetingForm.value) " >Create</button></div>
+  
+</form>
+</div>

@@ -1,0 +1,29 @@
+.Meetingform {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .formFields {
+    width: 100%;
+  }
+
+  .emp-list {
+    width: 100%;
+  }
+  .title{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color:rgb(196, 69, 46);
+  }
+
+  .create {
+    text-align: center;
+    
+}
+
+.button {
+    position: absolute;
+   
+}
